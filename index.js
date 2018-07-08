@@ -17,12 +17,13 @@ app.get('/singupAccount', function (req, res) {
     connection.connect();
 
     var response = {
-        "name":req.query.name,
-        "password":req.query.password
+        "WechartName":req.query.WechartName,
+        "PhoneNumber":req.query.PhoneNumber,
+        "Password":req.query.Password
     };
 
-    var  addSql = 'INSERT INTO Persons(WecharName, phoneNumber, Password) VALUES(?,?,?)';
-    var  addSqlParams = [response.name, response.password];
+    var  addSql = 'INSERT INTO Persons(WechartName, PhoneNumber, Password) VALUES(?,?,?)';
+    var  addSqlParams = [response.WechartName, response.PhoneNumber, response.Password];
 
     connection.query(addSql,addSqlParams,function (err, result) {
         if(err){
